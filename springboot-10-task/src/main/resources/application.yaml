@@ -1,0 +1,11 @@
+spring:
+#  配置邮箱发送服务
+  mail:
+    username: 505171123@qq.com
+    password: mrephlnrcmxxbgif
+    host: smtp.qq.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true

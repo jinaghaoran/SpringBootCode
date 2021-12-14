@@ -1,0 +1,28 @@
+# k- v
+# 保存key - value
+#name: jhr
+
+#保存对象,对实体类进行注入值
+person:
+  name: jhr
+  id: 1
+  maps: { "k1": V1, "k2": v2 }
+  dog:
+    id: 2
+    name: dog2
+    age: 3
+  list:
+    - code
+    - eat
+
+
+#对象的行内写法
+student2: { name: jhr,age: 12 }
+
+#数组
+pets:
+  - cat
+  - dog
+  - pig
+
+pets2: [ cat, dog, pig ]

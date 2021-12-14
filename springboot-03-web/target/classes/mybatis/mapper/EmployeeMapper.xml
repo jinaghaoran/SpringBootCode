@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ahnu.mapper.EmployeeMapper">
+<!--    查询所有，多个员工对应一个部门 resultMap="EmployeeDe"-->
+    <select id="getAll" resultMap="EmployeeDe">
+# select s.id sid, s.name sname, t.name tname
+# from mybatis.student s,
+#              mybatis.teacher t
+#         where s.tid = t.id;
+        select e.id eid,d.id did, d.departmentName dname,e.lastName ename,e.email eemail,e.gender egender,e.birth ebirth from ssm_crud.department d ,ssm_crud.employee e where d.departmentName=e.departmentName order by e.id asc 
+    </select>
+    <resultMap id="EmployeeDe" type="cn.ahnu.pojo.Employee">
+<result property="id" column="eid"/>
+<result property="lastName" column="ename"/>
+        <result property="email" column="eemail"/>
+        <result property="gender" column="egender"/>
+        <result property="birth" column="ebirth"/>
+        <association property="department" javaType="cn.ahnu.pojo.Department">
+            <result property="departmentName" column="dname"/>
+            </association>
+    </resultMap>
+
+<!--    id查询-->
+    <select id="getEmployeeById" parameterType="int" resultType="cn.ahnu.pojo.Employee">
+        select * from ssm_crud.employee where id=#{id}
+    </select>
+<!--    添加-->
+    <insert id="save" parameterType="cn.ahnu.pojo.Employee">
+# insert into ssm_crud.employee(lastName, email, gender, departmentId, birth, departmentName) values('jhr','11@11.com',1,101,'199-12-1','开发部')
+        insert into ssm_crud.employee(lastName, email, gender, birth, departmentName) values (#{lastName}, #{email}, #{gender},#{birth}, #{departmentName})
+    </insert>
+<!--    修改-->
+    <update id="updateEmp" parameterType="cn.ahnu.pojo.Employee">
+        update ssm_crud.employee set lastName=#{lastName}, email=#{email}, gender=#{gender},birth=#{birth}, departmentName=#{departmentName} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from ssm_crud.employee where id=#{id}
+    </delete>
+
+</mapper>
