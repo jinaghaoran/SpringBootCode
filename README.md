@@ -1,3 +1,3 @@
 # SpringBootCode
-狂神说javaSpringBoot部分代码
-配合笔记使用更佳：https://www.notion.so/jianghaoran/a88efeb7643749bba69d91294ba4a336?v=51ab72d377b84b85b0ca8b3a819feac8
+狂神说javaSpringBoot部分代码：
+配合笔记使用更佳：https://jianghaoran.notion.site/SpringBoot-99d962faf49148859cd952ff36e483bd
